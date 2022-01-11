@@ -1,11 +1,9 @@
-### YamlMime:Yaml
-# ms.openlocfilehash: 
 trigger:
 - '*'
 
 variables:
   buildConfiguration: 'Release'
-  releaseBranchName: release
+
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
@@ -66,16 +64,7 @@ stages:
 
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
-- stage: Dev
-  displayName: 'Deploy to the dev environment'
-  dependsOn: Build
-  condition: >
-    and
 
-    (
-      succeeded(),
-      eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])
-    )
 - stage: 'Deploy'
   displayName: 'Deploy the web application'
   dependsOn: Build

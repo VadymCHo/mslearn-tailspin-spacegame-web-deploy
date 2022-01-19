@@ -3,6 +3,8 @@ trigger:
 
 variables:
   buildConfiguration: 'Release'
+  ServiceConnectionName: 'Resource Manager - Tailspin - Space Game'
+  ResourceGroup: 'tailspin-space-game-rg' 
 
 stages:
 - stage: 'Build'
